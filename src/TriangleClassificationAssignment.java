@@ -13,6 +13,7 @@ public class TriangleClassificationAssignment {
             if (a > b) {max = a; a = c; c = max;}
             if (b > c) {max = b; b = c; c = max;}
             if (a > b) {max = a; a = b; b = max;}
+            System.out.println(angles(a, b, c));
             if (a == 0 && b == 0 && c == 0) {System.out.println(a + " " + b + " " + c + " Program was terminated by user."); break;}
             if (isValidTriangle(a, b, c)) {
                 System.out.println(a + " " + b + " " + c + " Triangle possible: " + triangleType(a, b, c) + " and " + angleType(a, b, c) + ".");
@@ -44,5 +45,14 @@ public class TriangleClassificationAssignment {
         } else {
             return "obtuse";
         }
+    }
+
+    public static String angles(int a, int b, int c) {
+        //use cosine rule to find angles
+        // TODO: fix B and C
+        double C = Math.acos((double) (a * a + b * b - c * c) /(2 * a * b));
+        double B = Math.acos((double) (a * a + c * c - b * b) /(2 * a * c));
+        double A = Math.acos((double) (b * b + c * c - a * a) /(2 * b * c));
+        return "A = " + A + " B = " + B + " C = " + C;
     }
 }
