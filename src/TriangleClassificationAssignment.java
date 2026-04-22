@@ -23,7 +23,7 @@ public class TriangleClassificationAssignment {
     public static void output(int a, int b, int c) {
         if (a == 0 && b == 0 && c == 0) {System.out.println(a + " " + b + " " + c + " Program was terminated by user."); return;}
         if (isValidTriangle(a, b, c)) {
-            System.out.println(a + " " + b + " " + c + " Triangle possible: " + triangleType(a, b, c) + " and " + angleType(a, b, c) + " with the following angles and area: \n" + angles(a, b, c) + "\nArea = " + areaFromSideLengths(a, b, c));
+            System.out.println(a + " " + b + " " + c + " Triangle possible: " + triangleType(a, b, c) + " and " + angleType(a, b, c) + " with the following angles, area, and perimiter: \n" + angles(a, b, c) + "\nArea = " + areaFromSideLengths(a, b, c) + "\nPerimiter = " + perimiter(a, b, c));
         } else {System.out.println(a + " " + b + " " + c + " Triangle cannot be formed.");}
     }
 
@@ -53,5 +53,9 @@ public class TriangleClassificationAssignment {
     public static double areaFromSideLengths(int a, int b, int c) {
         double s = (a + b + c) / 2.0;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    public static int perimiter(int a, int b, int c) {
+        return a + b + c;
     }
 }
