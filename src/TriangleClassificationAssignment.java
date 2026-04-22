@@ -23,7 +23,7 @@ public class TriangleClassificationAssignment {
     public static void output(int a, int b, int c) {
         if (a == 0 && b == 0 && c == 0) {System.out.println(a + " " + b + " " + c + " Program was terminated by user."); return;}
         if (isValidTriangle(a, b, c)) {
-            System.out.println(a + " " + b + " " + c + " Triangle possible: " + triangleType(a, b, c) + " and " + angleType(a, b, c) + " with the following angles: \n" + angles(a, b, c));
+            System.out.println(a + " " + b + " " + c + " Triangle possible: " + triangleType(a, b, c) + " and " + angleType(a, b, c) + " with the following angles and area: \n" + angles(a, b, c) + "\nArea = " + areaFromSideLengths(a, b, c));
         } else {System.out.println(a + " " + b + " " + c + " Triangle cannot be formed.");}
     }
 
@@ -48,5 +48,10 @@ public class TriangleClassificationAssignment {
         return "Side " + a + ", Angle A = " + String.format("%.2f", angleA) + "°, " +
                 "Side " + b + ", Angle B = " + String.format("%.2f", angleB) + "°, " +
                 "Side " + c + ", Angle C = " + String.format("%.2f", angleC) + "°";
+    }
+
+    public static double areaFromSideLengths(int a, int b, int c) {
+        double s = (a + b + c) / 2.0;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 }
